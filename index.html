@@ -6,10 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcial 2 La pokedex</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="utils.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 
 <body>
+    <main class="main-container">
+        <section class="section-card-container">
+            <div class="flat-card-container icon-card-margin">
+                <img src="./assets/img/pokeapi_logo.png" class="pokeapi-logo">
+                <h1 class="pokeapi-title mt">Buscador de Pokemones</h1>
+                <p class="w100 mt">Busca desde pokemones hasta la habilidad de los mismos</p>
+                <form class="form-container" id="pokeapi-form">
+                    <div class="w48 mt">
+                        <label class="form-label w100" for="search">Busqueda</label>
+                        <input class="w100 pokeapi-input" type="text" name="search" id="pokeapi-input-search"
+                            value="Pikachu">
+                    </div>
 
+                    <!-- phase 2 -->
+                    <!-- <div id="selects"></div> -->
+                    <!-- <div id="add-filter"></div> -->
+
+                    <div class="w48 mt">
+                        <label class="form-label w100">Tipo de Busqueda:</label>
+                        <select class="w100 pokeapi-input pokeapi-select" id="pokeapi-type">
+                            <option hidden></option>
+                            <option selected value="pokemon">Pokemon</option>
+                            <option value="ability">Habilidad</option>
+                        </select>
+                    </div>
+                    <div class="buttons mt">
+                        <div class="pokeapi-btn" id="pokeapi-limpiar-btn">Limpiar</div>
+                        <button class="pokeapi-btn" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="section-card-container mt" id="pokeapi-output">
+            <!-- <div class="flat-card-container">
+
+        </div> -->
+        </section>
+    </main>
 </body>
 
 </html>
