@@ -27,11 +27,13 @@ const utils = document.parcial2_AP.utils;
 
                 const query = App.htmlElements.pokeapiInputSearch?.value;
                 const searchType = App.htmlElements.pokeapiSearchType?.value;
-                console.log(query, searchType);
+                // console.log(query, searchType);
                 if (!query)
-                    return App.htmlElements.pokeapiOutput.innerHTML = `<div class="flat-card-container"><h1>Ingrese algun dato para buscar</h1></div>`;
+                    return App.htmlElements.pokeapiOutput.innerHTML = `<div class="flat-card-container"><h1>Ingrese algún dato para buscar</h1></div>`;
+                if (!searchType)
+                    return App.htmlElements.pokeapiOutput.innerHTML = `<div class="flat-card-container"><h1>Ingrese algún tipo de búsqueda</h1></div>`;
 
-                console.log({ searchType, query });
+                // console.log({ searchType, query });
                 try {
                     //multirequest depending on searchType
                     let response = {};
@@ -40,7 +42,7 @@ const utils = document.parcial2_AP.utils;
                     else//default
                         response = await Utils.getPokemon({ nameOrId: query.toLowerCase() })
 
-                    console.log(response)
+                    // console.log(response)
                     //transform the chain object into a readable array:
                     const renderedTemplate = App.templates.render({
                         searchType,
@@ -53,7 +55,7 @@ const utils = document.parcial2_AP.utils;
             },
             onClickLimpiarPokeapiBtn: (e) => {
                 e.preventDefault();
-                console.log("clearing");
+                // console.log("clearing");
                 //clear fields
                 App.htmlElements.pokeapiInputSearch.value = "";
                 App.htmlElements.pokeapiSearchType.value = "";
