@@ -8,7 +8,7 @@
             return `${Utils.config.backendBaseUrl}/${searchType}/${query}`;
         },
         getAbility: ({ nameOrId }) => {
-            const searchType = "ability"
+            const searchType = "ability";
             return Utils.fetch({
                 url: Utils.getFormattedBackendUrl({ query: nameOrId.replace(" ", "-"), searchType }),
                 searchType,
@@ -47,7 +47,7 @@
                     })
                 return response;
             } catch (e) {
-                console.log(e)
+                // console.log(e)
                 throw new Error(`No pokemon found`);
             }
         },
