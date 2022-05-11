@@ -1,0 +1,202 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-Regular.ttf') format('truetype'),
+        url('assets/font/Montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    /* display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center; */
+    background-color: rgb(39, 48, 58);
+
+}
+
+
+h1,
+h2,
+h3,
+p,
+body,
+html {
+    margin: 0;
+}
+
+.pokeapi-title {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: left;
+}
+
+.section-card-container {
+    width: 60%;
+    /* height: 400px; */
+}
+
+.main-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    overflow-y: auto;
+}
+
+.icon-card-margin {
+    margin-top: 20%;
+}
+
+.flat-card-container {
+    width: 100%;
+    /* height: 100%; */
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: space-evenly;
+    /* align-items: center; */
+    position: relative;
+}
+
+.pokeapi-logo {
+    position: absolute;
+    top: -30%;
+    /* left: -50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.form-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.pokeapi-btn {
+    width: 100px;
+    height: 30px;
+    background-color: #1aa5f8;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.pokeapi-btn:hover {
+    background-color: #188acb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.pokeapi-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
+}
+
+.pokeapi-input {
+    outline-style: none;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: black;
+    background-color: #e8e8e8;
+
+}
+
+.pokeapi-sprites {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pokeapi-sprite-container {
+    /* width: 100%; */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pokeapi-sprite-img {
+    /* width: 100%; */
+    /* height: 100%; */
+    width: 50px;
+    height: 50px;
+
+}
+
+.pokeapi-sprite-name {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.pokeapi-icon {
+    /* icon */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.mt {
+    margin-top: 15px;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.w48 {
+    width: 48%;
+}
