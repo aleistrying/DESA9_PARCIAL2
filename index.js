@@ -25,6 +25,9 @@ const utils = document.parcial2_AP.utils;
             onSubmitPokeapiForm: async (e) => {
                 e.preventDefault();
 
+                if (App.htmlElements.limpiarPokeapiBtn.classList.contains("hidden"))
+                    App.htmlElements.limpiarPokeapiBtn.classList.remove("hidden");
+
                 const query = App.htmlElements.pokeapiInputSearch?.value;
                 const searchType = App.htmlElements.pokeapiSearchType?.value;
                 // console.log(query, searchType);
@@ -55,12 +58,16 @@ const utils = document.parcial2_AP.utils;
             },
             onClickLimpiarPokeapiBtn: (e) => {
                 e.preventDefault();
+
+                if (App.htmlElements.limpiarPokeapiBtn.classList.contains("hidden"))
+                    return;
                 // console.log("clearing");
                 //clear fields
                 App.htmlElements.pokeapiInputSearch.value = "";
                 App.htmlElements.pokeapiSearchType.value = "";
                 //clear resulting output
                 App.htmlElements.pokeapiOutput.innerHTML = "";
+                App.htmlElements.limpiarPokeapiBtn.classList.add("hidden");
             },
         },
         templates: {
@@ -85,28 +92,29 @@ const utils = document.parcial2_AP.utils;
             },
             whoCanLearnAbilityCard: ({ name, pokemon }) =>
                 `<div class="flat-card-container">
-                    <div class="w100 mt">
-                        <h1>${Utils.capitalize(name)}</h1>
+                    <div class="w100 inner-container-fix">
+                        <h3 class="pokeapi-pokemon-name-title">${Utils.capitalize(name).replace("-", " ")}</h3>
+                        <h4 class="pokeapi-pokemon-title mt">Who can learn it?</h4>
                         ${App.templates.whoCanLearn({ pokemon })}
                     </div>
                 </div>`,
             whoCanLearn: ({ pokemon }) =>
                 `<ul>
-                    ${pokemon.map((p) => `<li>${Utils.capitalize(p.pokemon.name)} ${p?.is_hidden ? App.templates.iconHidden() : ""}</li>`).join("")}
+                    ${pokemon.map((p) => `<li><div class="li-item-container">${Utils.capitalize(p.pokemon.name)} ${p?.is_hidden ? App.templates.iconHidden() : ""}</div></li>`).join("")}
                 </ul>`,
             nameCard: ({ name, id }) =>
-                `<div class="w100 mt">
-                    <h1>${Utils.capitalize(name)} (${id})</h1>
+                `<div class="w100 ">
+                    <h2 class="pokeapi-pokemon-name-title">${Utils.capitalize(name)} (${id})</h2>
                 </div > `,
             sprites: ({ sprites }) =>
                 `<div class="w48 mt">
-                    <h1>Sprites</h1>
+                    <h3 class="pokeapi-pokemon-title">Sprites</h3>
                     <div class="pokeapi-sprites">
                     ${Object.entries(sprites)
                     .filter(([name, link]) => link !== null && ['front_default', 'back_default'].includes(name))
                     .sort((a, b) => a[0].includes("front") ? -1 : 1)
                     .map(([name, link]) => `<div class="pokeapi-sprite-container">
-                                        <img class="pokeapi-sprite-img" src="${link}" alt="${name}" />
+                                        <div class="pokeapi-sprite-img-container"><img class="pokeapi-sprite-img" src="${link}" alt="${name}" /></div>
                                         <!--<p class="pokeapi-sprite-name">${name.replace(/\_/gi, " ")}</p>-->
                                     </div>`)
                     .join("")}
@@ -114,34 +122,36 @@ const utils = document.parcial2_AP.utils;
             </div> `,
             weightHeight: ({ weight, height }) =>
                 `<div class="w48 mt" >
-                    <h1> Weight / Height</h1>
-                    <p > ${weight} / ${height}</p>
+                    <h3 class="pokeapi-pokemon-title"> Weight / Height</h3>
+                    <p> ${weight} / ${height}</p>
                 </div > `,
             abilities: ({ abilities }) =>
                 `<div class="w48 mt" >
-        <h1>Abilities</h1>
+        <h3 class="pokeapi-pokemon-title">Abilities</h3>
                     ${!abilities?.length ? "No abilities" :
                     `<ul>
                         ${abilities
-                        .map(ability => `<li>${ability.ability.name} ${ability?.is_hidden ? App.templates.iconHidden() : ""}</li>`)
+                        .map(ability => `<li><div class="li-item-container">${Utils.capitalize(ability.ability.name)} ${ability?.is_hidden ? App.templates.iconHidden() : ""}</div></li>`)
                         .join("")}
                     </ul>`  }
                 </div > `,
             evolutionChain: ({ evolutionChain }) =>
                 `<div class="w48 mt" >
-                    <h1>Evolution Chain</h1>
+                    <h3 class="pokeapi-pokemon-title">Evolution Chain</h3>
                         ${!evolutionChain?.length ? "No evolution chain" :
                     `<ul>
                             ${evolutionChain
                         .map(evolution =>
                             `<li>
+<div class="li-item-container">
                                     ${Utils.capitalize(evolution.name)} ${evolution?.isBaby ? App.templates.iconBaby() : ""}
+                                    </div>
                                 </li>`)
                         .join("")}
                         </ul>`  }
                 </div > `,
-            iconHidden: () => `<img src = "./assets/svg/eye.svg" > `,
-            iconBaby: () => `<img src = "./assets/svg/baby.svg" > `,
+            iconHidden: () => `<img class="pokeapi-icon" src = "./assets/svg/eye.svg" > `,
+            iconBaby: () => `<img class="pokeapi-icon" src = "./assets/svg/baby.svg" > `,
         },
     };
     App.init();
