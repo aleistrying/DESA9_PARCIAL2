@@ -1,7 +1,55 @@
+:root {
+    --main-background-color: #fafafa;
+    --sprite-size: 32px;
+}
+
 @font-face {
     font-family: 'Montserrat';
-    src: url('assets/font/Montserrat/Montserrat-Regular.ttf') format('truetype'),
-        url('assets/font/Montserrat/Montserrat-Bold.ttf') format('truetype');
+    src: url('assets/font/Montserrat/Montserrat-Light.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-Thin.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat/Montserrat-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
 }
 
 * {
@@ -26,16 +74,50 @@ body {
 h1,
 h2,
 h3,
+h4,
+h5,
 p,
+ul,
+li,
 body,
 html {
     margin: 0;
+    padding: 0;
+}
+
+.li-item-container {
+    width: 100%;
+    height: 100%;
+    font-size: 0.8rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+li::marker {
+    font-size: 0.45rem;
+}
+
+ul {
+    margin-top: 0.2rem;
+    padding-left: 1.8rem;
+}
+
+.pokeapi-pokemon-name-title {
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight: 900;
+
 }
 
 .pokeapi-title {
     font-size: 1.5rem;
     width: 100%;
     text-align: left;
+}
+
+.pokeapi-description {
+    font-size: 0.8rem;
 }
 
 .section-card-container {
@@ -73,6 +155,10 @@ html {
     position: relative;
 }
 
+.inner-container-fix {
+    padding-left: 4px;
+}
+
 .pokeapi-logo {
     position: absolute;
     top: -30%;
@@ -95,12 +181,13 @@ html {
 }
 
 .form-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
 }
 
 .pokeapi-btn {
-    width: 100px;
+    /* width: 120px; */
+    width: 25%;
     height: 30px;
     background-color: #1aa5f8;
     font-weight: bold;
@@ -113,7 +200,7 @@ html {
     justify-content: center;
     align-items: center;
 
-    font-size: 14px;
+    font-size: 12px;
 
     cursor: pointer;
     user-select: none;
@@ -161,12 +248,23 @@ html {
     align-items: center;
 }
 
+.pokeapi-sprite-img-container {
+    width: var(--sprite-size);
+    height: var(--sprite-size);
+    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .pokeapi-sprite-img {
     /* width: 100%; */
     /* height: 100%; */
-    width: 50px;
-    height: 50px;
-
+    width: var(--sprite-size);
+    height: var(--sprite-size);
+    transform: scale(1.8);
+    /* background-position: 150%; */
 }
 
 .pokeapi-sprite-name {
@@ -176,17 +274,26 @@ html {
 
 .pokeapi-icon {
     /* icon */
-    width: 100%;
-    height: 100%;
-    display: flex;
+    padding-left: 5px;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center; */
 
 }
 
+.pokeapi-pokemon-title {
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
 .hidden {
-    display: none;
+    /* display: none; */
+    opacity: 0;
+    cursor: default;
+    user-select: none;
 }
 
 .mt {

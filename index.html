@@ -16,11 +16,11 @@
         <section class="section-card-container">
             <div class="flat-card-container icon-card-margin">
                 <img src="./assets/img/pokeapi_logo.png" class="pokeapi-logo">
-                <h1 class="pokeapi-title mt">Buscador de Pokemones</h1>
-                <p class="w100 mt">Busca desde pokemones hasta la habilidad de los mismos</p>
+                <h1 class="pokeapi-title mt">Buscador de pokemones</h1>
+                <p class="w100 mt pokeapi-description">Busca desde pokemones hasta las habilidades de los mismos.</p>
                 <form class="form-container" id="pokeapi-form">
                     <div class="w48 mt">
-                        <label class="form-label w100" for="search">Busqueda</label>
+                        <label class="form-label w100" for="search">Buscar</label>
                         <input class="w100 pokeapi-input" type="text" name="search" id="pokeapi-input-search" value="">
                     </div>
 
@@ -29,7 +29,7 @@
                     <!-- <div id="add-filter"></div> -->
 
                     <div class="w48 mt">
-                        <label class="form-label w100">Tipo de Busqueda:</label>
+                        <label class="form-label w100">Tipo de Búsqueda:</label>
                         <select class="w100 pokeapi-input pokeapi-select" id="pokeapi-type">
                             <option hidden selected></option>
                             <option value="pokemon">Pokemon</option>
@@ -37,7 +37,7 @@
                         </select>
                     </div>
                     <div class="buttons mt">
-                        <div class="pokeapi-btn" id="pokeapi-limpiar-btn">Limpiar</div>
+                        <div class="pokeapi-btn hidden" id="pokeapi-limpiar-btn">Limpiar</div>
                         <button class="pokeapi-btn" type="submit">Buscar</button>
                     </div>
                 </form>
